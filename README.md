@@ -26,7 +26,8 @@ pkp request signer dominic@dominictarr.com
 
 ### Step C
 `USER B` passes the link to `pkp` to sign the request in which `pkp`
-emails `USER A` with the signed request.
+emails `USER A` with the signed request. `pkp` posts the signing data
+to a public service of record and retains a url.
 
 ```
 pkp request sign http://git.io/bOeLyA
@@ -35,11 +36,20 @@ pkp request sign http://git.io/bOeLyA
 ### Step D
 `USER A` can then add the signed request to their `pki.json` file and
 republish with `+S.n` in the new version where `n` is the next signing.
+This includes the signing data from `USER B` which can then be used to
+verify the signature.
 
 ```
 pkp request accept ...
 ```
 
+## THIRD PARTY VERIFICATION
+When `USER C` whants to verify the package, they use the data that has
+been written to `pki.json` by executing the following command.
+
+```
+pkp verify
+```
 
 ## PKI FILE SPECIFICATION
 A package should contain a pki.json file that includes the following 
