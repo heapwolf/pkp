@@ -83,22 +83,43 @@ switch (command) {
     }
 
     //
-    // add signers to the request
+    // add signers to the request by posting the 
+    // request to a public service of record
     //
     else if (subcommand === 'signer') {
 
-      if (!argv.email && !argv.twitter && !argv.github) {
-        return console.log(
-          'ERR: A signing request requires at least one communication method'
-        )
-      }
-
       console.log('Attempting to send a signing request')
       lib.request.signer(argv, function(err, request) {
-        
-        console.log(err)
+
+        if (err) {
+          console.log(err)
+          process.exit(1)
+        }
 
       })
+    }
+
+    //
+    // sign the actual request and post the modified file to the 
+    // public service of record with the modified pki.json
+    //
+    else if (subcommand === 'sign') {
+
+      lib.request.sign(argv, function(err) {
+        
+        if (err) {
+          return console.log(err)
+        }
+        console.log('Successfully signed the request')
+
+      })
+    }
+
+    //
+    // accept the signed request from the public service using the emailed link
+    //
+    else if (subcommand === 'accept') {
+
     }
 
   ;break

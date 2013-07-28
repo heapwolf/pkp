@@ -32,3 +32,10 @@ and the value is an array of signers for the specific version.
   }
 }
 ```
+
+## SIGNING WORKFLOW
+
+- `USER A` creates a signing request with their public key and a hash of the codebase
+- `USER A` adds a signer in which `pkp` emails a link alerting `USER B` to the request
+- `USER B` passes the link to `pkp` to sign the request in which `pkp` emails `USER A` with the signed request.
+- `USER A` can then add the signed request to their `pki.json` file and republish with `+S.n` in the new version where `n` is the next signing.

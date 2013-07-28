@@ -13,6 +13,8 @@
     "optimist": "~0.6.0",
     "node-forge": "~0.1.5",
     "fstream-ignore": "0.0.7",
-    "hashd": "0.0.1"
+    "hashd": "0.0.1",
+    "nodemailer": "~0.5.2",
+    "node-github": "0.0.3"
   }
 }
