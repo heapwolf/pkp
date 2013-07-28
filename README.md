@@ -52,8 +52,9 @@ pkp verify
 ```
 
 ## PKI FILE SPECIFICATION
-A package should contain a pki.json file that includes the following 
-fields.
+A package should contain a pki.json file which includes an object literal
+with entries corresponding to each signed version of the package. The file 
+should include the following fields.
 
 ### `key`
 A public key of the requesting signer.
