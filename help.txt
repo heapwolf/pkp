@@ -33,7 +33,7 @@ OPTIONS
 
 COMMAND
 
-  pkp request verify
+  pkp request verify  Verify the signed request
 
 OPTIONS
 

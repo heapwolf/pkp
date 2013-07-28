@@ -86,8 +86,18 @@ switch (command) {
     // add signers to the request
     //
     else if (subcommand === 'signer') {
+
+      if (!argv.email && !argv.twitter && !argv.github) {
+        return console.log(
+          'ERR: A signing request requires at least one communication method'
+        )
+      }
+
+      console.log('Attempting to send a signing request')
       lib.request.signer(argv, function(err, request) {
         
+        console.log(err)
+
       })
     }
 
