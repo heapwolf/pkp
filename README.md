@@ -1,13 +1,43 @@
 # Public Key Infrastructure for Packages
 
+
 ## SYNOPSIS
 This is a specification that leverages Public Key Infrastructure to build 
 trust networks for distributed software.
 
-## MOTIVATION
+
+## SIGNING WORKFLOW
+
+### Step A
+`USER A` creates a signing request with their public key and a hash of the codebase
+
+```
+pkp request
+```
+
+### Step B
+`USER A` adds a signer in which `pkp` emails a link alerting `USER B` to the request
+
+```
+pkp request signer dominic@dominictarr.com
+```
+
+### Step C
+`USER B` passes the link to `pkp` to sign the request in which `pkp` emails `USER A` with the signed request.
+
+```
+pkp request sign http://git.io/bOeLyA
+```
+
+### Step D
+`USER A` can then add the signed request to their `pki.json` file and republish with `+S.n` in the new version where `n` is the next signing.
+
+```
+pkp request accept ...
+```
 
 
-## SPECIFICATION
+## PKI FILE SPECIFICATION
 A package should contain a pki.json file that includes the following fields.
 
 ### `key`
@@ -32,10 +62,3 @@ and the value is an array of signers for the specific version.
   }
 }
 ```
-
-## SIGNING WORKFLOW
-
-- `USER A` creates a signing request with their public key and a hash of the codebase
-- `USER A` adds a signer in which `pkp` emails a link alerting `USER B` to the request
-- `USER B` passes the link to `pkp` to sign the request in which `pkp` emails `USER A` with the signed request.
-- `USER A` can then add the signed request to their `pki.json` file and republish with `+S.n` in the new version where `n` is the next signing.
