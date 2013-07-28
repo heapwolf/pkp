@@ -58,8 +58,12 @@ A package should contain a pki.json file which includes an object literal
 with entries corresponding to each signed version of the package. The file 
 should include the following fields.
 
+### `author`
+Extracted from the `package.json`. This is used to alter the user making
+the request that a signing has been successful.
+
 ### `key`
-A public key of the requesting signer.
+The public key of the user making the request.
 
 ### `sha1`
 A sha1 hash of the codebase to be signed.
@@ -71,6 +75,7 @@ be verified using `pkp`.
 ```json
 {
   "0.0.1": {
+    "author": "Paolo Fragomeni <paolo@async.ly> http://twitter.com/hij1nx",
     "key": "-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEAhz2gGatYvGuUTwxwWeRbexRckpqwV+4EGLqCvlyI62gbVc4iTbAm47pMRdTn\nqFX9TxoVPE3P/p5Md9xH55YVBO/WgIXdpjT3gOmLr3wUsdjn5Hx8ytM/EAOV/WenOmrBB/oP\nW+yg2lbRfkMlTlc59wO9ISp0fCLIX88iixiQrLMhsAzrV0xwRMOsqQCcIPhZESuX1qJ49eSg\nXY7n5BRtADOoFeaLPNeLu5rUHJbeA4Goj85yFxwLrmKJu0CHH+J5ONAnSDTznYeXLGLuiYty\nyh4jO7xwOjyGO68nzo2/F/KYOfyChlY0mPJMpMo91qaQt3aCm6qxcRFcujyjAT68aQIDAQAB\n-----END RSA PUBLIC KEY-----\n\n",
     "sha1": "31d403bcf83a29266595fe31e7170c617eb281a3",
     "signatures": [
