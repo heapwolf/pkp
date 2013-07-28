@@ -2,35 +2,39 @@
 
 
 ## SYNOPSIS
-This is a specification that leverages Public Key Infrastructure to build 
-trust networks for distributed software.
+This is a specification and implementation that leverages Public Key 
+Infrastructure to build  trust networks for distributed software.
 
 
 ## SIGNING WORKFLOW
 
 ### Step A
-`USER A` creates a signing request (this includes `USER A`'s public key and a hash of the codebase)
+`USER A` creates a signing request (this includes `USER A`'s public 
+key and a hash of the codebase)
 
 ```
 pkp request
 ```
 
 ### Step B
-`USER A` adds a signer in which `pkp` emails a link alerting `USER B` to the request
+`USER A` adds a signer in which `pkp` emails a link alerting `USER B`
+to the request
 
 ```
 pkp request signer dominic@dominictarr.com
 ```
 
 ### Step C
-`USER B` passes the link to `pkp` to sign the request in which `pkp` emails `USER A` with the signed request.
+`USER B` passes the link to `pkp` to sign the request in which `pkp`
+emails `USER A` with the signed request.
 
 ```
 pkp request sign http://git.io/bOeLyA
 ```
 
 ### Step D
-`USER A` can then add the signed request to their `pki.json` file and republish with `+S.n` in the new version where `n` is the next signing.
+`USER A` can then add the signed request to their `pki.json` file and
+republish with `+S.n` in the new version where `n` is the next signing.
 
 ```
 pkp request accept ...
@@ -38,14 +42,15 @@ pkp request accept ...
 
 
 ## PKI FILE SPECIFICATION
-A package should contain a pki.json file that includes the following fields.
+A package should contain a pki.json file that includes the following 
+fields.
 
 ### `key`
 A public key 
 
 ### `signers`
-An object literal of "package signers", where the key is the package version
-and the value is an array of signers for the specific version.
+An object literal of "package signers", where the key is the package 
+version and the value is an array of signers for the specific version.
 
 ```json
 {
