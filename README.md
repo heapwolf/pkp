@@ -9,7 +9,7 @@ trust networks for distributed software.
 ## SIGNING WORKFLOW
 
 ### Step A
-`USER A` creates a signing request with their public key and a hash of the codebase
+`USER A` creates a signing request (this includes `USER A`'s public key and a hash of the codebase)
 
 ```
 pkp request
