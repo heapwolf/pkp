@@ -10,7 +10,7 @@ Infrastructure to build  trust networks for distributed software.
 
 ### Step A
 `USER A` creates a signing request (this includes `USER A`'s public 
-key and a hash of the codebase)
+key and a hash of the codebase excluding the signing file)
 
 ```
 pkp request
