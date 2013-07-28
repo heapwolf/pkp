@@ -27,7 +27,9 @@ pkp request signer dominic@dominictarr.com
 ### Step C
 `USER B` passes the link to `pkp` to sign the request in which `pkp`
 emails `USER A` with the signed request. `pkp` posts the signing data
-to a public service of record and retains a url.
+to a public service of record. The data includes the public key of the
+signer and the signiture that was made using the `sha1` as the secret 
+to sign with.
 
 ```
 pkp request sign http://git.io/bOeLyA
