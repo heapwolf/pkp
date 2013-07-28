@@ -1,0 +1,56 @@
+
+COMMAND
+
+  pkp request create  Generate a request for this version of this package.
+                      Hashes entire codebase except for patterns found in the
+                      ignore files specified.
+OPTIONS
+
+  --dir ./path        Specify the path to the package's directory.
+  --key ./path        Specify the path to the public key file to use. If one 
+                      is not provided, the public key from the last request 
+                      is used.
+
+COMMAND
+
+  pkp request signer  Send the request to a signer via email, twitter or 
+                      github.
+
+OPTIONS
+
+  --twitter <handle>  Send request to twitter
+  --github <handle>   Send request to github
+  --email <address>   Send request to email
+
+
+COMMAND
+
+  pkp request sign    Sign a request that has been sent to you
+
+OPTIONS
+
+  --key ./path        Specify the path to the public key file to use.
+
+COMMAND
+
+  pkp request verify
+
+OPTIONS
+
+
+COMMAND
+
+  pkp keys create     Generate a public/private key pair.
+                      Writes the public key to the pki.json file and the 
+                      private key to stdout.
+
+COMMAND
+      
+  pkp keys add        Add an existing public key to the pki.json file.
+                      No new keys are generated, nothing to stdout.
+
+OPTIONS
+
+  --public            A path to where the public key file can be read.
+  --private           A path to where the private key file can be read.
+

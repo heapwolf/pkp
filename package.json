@@ -1,0 +1,18 @@
+{
+  "name": "pkp",
+  "version": "0.0.1",
+  "description": "",
+  "bin": "./bin/pkp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paolo Fragomeni <paolo@async.ly> http://twitter.com/hij1nx",
+  "license": "MIT",
+  "dependencies": {
+    "optimist": "~0.6.0",
+    "node-forge": "~0.1.5",
+    "fstream-ignore": "0.0.7",
+    "hashd": "0.0.1"
+  }
+}

@@ -1,0 +1,95 @@
+#!/usr/bin/env node
+
+var fs = require('fs')
+var path = require('path')
+var util = require('util')
+
+var lib = require('../index')
+var files = require('../lib/files')
+var argv = require('optimist').argv
+
+files.init({
+  'config': path.join(process.env['HOME'], '.pkp'),
+  'pki': argv.location || path.join(process.cwd(), 'pki.json'),
+  'package': argv.location || path.join(process.cwd(), 'package.json'),
+  'help': path.join(__dirname, '..', 'help.txt'),
+  'meta': path.join(__dirname, '..', 'package.json')
+})
+
+function versionInfo() {
+  var info = files.get('meta')
+  return [info.name, 'v' + info.version].join(' ')
+}
+
+if (argv.version || argv.v) {
+  process.stdout.write(versionInfo())
+  process.exit(0)
+}
+
+if (argv.help || argv.h) {
+  console.log((versionInfo()))
+  console.log(files.get('help'))
+  process.exit(0)
+}
+
+var command = argv._[0]
+var subcommand = argv._[1]
+
+switch (command) {
+
+  case 'keys':
+
+    //
+    // create a pair of keys, add them to the user's config
+    //
+    if (subcommand === 'create') {
+      lib.keys.create(argv)
+    }
+
+    //
+    // add an existing pair of keys to the user's config
+    //
+    else if (subcommand === 'add') {
+
+      if (!argv.public || !argv.private) {
+        return console.log(
+          'ERR: A `public` and `private` options must be speicified.'
+        )
+      }
+      lib.keys.add(argv)
+      console.log('Successfully added public and private keys')
+    }
+
+  ;break
+
+  case 'request':
+
+    if (subcommand === 'create') {
+
+      //
+      // create a signing request that can have signers added to it
+      //
+      console.log('Attempting to create signing request...')
+      lib.request.create(argv, function(err, request) {
+
+        if (err) {
+          return console.error(err)
+        }
+        return console.log(
+          'Successfully created a signing request for', 
+          files.get('package').version
+        )
+      })
+    }
+
+    //
+    // add signers to the request
+    //
+    else if (subcommand === 'signer') {
+      lib.request.signer(argv, function(err, request) {
+        
+      })
+    }
+
+  ;break
+}
