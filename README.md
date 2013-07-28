@@ -56,11 +56,14 @@ A package should contain a pki.json file that includes the following
 fields.
 
 ### `key`
-A public key 
+A public key of the requesting signer.
 
-### `signers`
-An object literal of "package signers", where the key is the package 
-version and the value is an array of signers for the specific version.
+### `sha1`
+A sha1 hash of the codebase to be signed.
+
+### `signatures`
+An array of object literals representing successful signings that can
+be verified using `pkp`.
 
 ```json
 {
