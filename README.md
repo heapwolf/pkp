@@ -30,14 +30,10 @@ back to `USER A`.
 pkp request --sign http://git.io/bOeLyA
 ```
 
-### Step D
+### Step C
 `USER A` can then accept the signed request by merging it back into
-their `pki.json`. Optionally republish with `+S.n` in the new version 
-where `n` is the new signed version.
-
-```
-pkp request accept ...
-```
+their `pki.json`. Optionally republish the package with `+S.<n>` in 
+the new version where `n` is the new signed version number.
 
 ## THIRD PARTY VERIFICATION
 
