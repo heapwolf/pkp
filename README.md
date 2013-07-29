@@ -9,16 +9,17 @@ Infrastructure to build  trust networks for distributed software.
 ## SIGNING WORKFLOW
 
 ### Step A
-`USER A` creates a signing request (this includes `USER A`'s public 
-key and a hash of the codebase excluding the signing file)
+`USER A` creates a signing request for the version specified in the
+`package.json` file. This includes `USER A`'s public key and a hash
+of the codebase (excluding the signing file).
 
 ```
 pkp request
 ```
 
 ### Step B
-`USER A` adds a signer in which `pkp` emails a link alerting `USER B`
-to the request
+`USER A` adds "signers" in which `pkp` emails a link alerting each
+signer. Let `USER B` be a signer for the request in this case.
 
 ```
 pkp request signer dominic@dominictarr.com
@@ -36,10 +37,10 @@ pkp request sign http://git.io/bOeLyA
 ```
 
 ### Step D
-`USER A` can then add the signed request to their `pki.json` file and
-republish with `+S.n` in the new version where `n` is the next signing.
-This includes the signing data from `USER B` which can then be used to
-verify the signature.
+`USER A` can then accept the signed request by using `pkp` to add it to
+their `pki.json` file and republish with `+S.n` in the new version where
+`n` is the next signing. This includes the signing data from `USER B` 
+which can then be used to verify the signature.
 
 ```
 pkp request accept ...
