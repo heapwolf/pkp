@@ -7,6 +7,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hij1nx/pkp.git"
+  },
   "author": "Paolo Fragomeni <paolo@async.ly> http://twitter.com/hij1nx",
   "license": "MIT",
   "dependencies": {
@@ -15,6 +19,9 @@
     "fstream-ignore": "0.0.7",
     "hashd": "0.0.1",
     "nodemailer": "~0.5.2",
-    "node-github": "0.0.3"
+    "node-github": "0.0.3",
+    "hyperquest": "~0.1.7",
+    "event-stream": "~3.0.16",
+    "cli-prompt": "~0.3.2"
   }
 }

@@ -1,57 +1,45 @@
 # Public Key Infrastructure for Packages
 
-```
-npm install pkp -g
-```
-
 ## SYNOPSIS
 This is a specification and implementation that leverages Public Key 
 Infrastructure to build  trust networks for distributed software.
 
+```
+npm install pkp -g
+```
 
 ## SIGNING WORKFLOW
 
 ### Step A
 `USER A` creates a signing request for the version specified in the
-`package.json` file. This includes `USER A`'s public key and a hash
-of the codebase (excluding the signing file).
+`package.json` file. This results in a `pki.json` file that contains 
+`USER A`'s public key and a hash of the codebase (excluding the signing 
+file). `pkp` will try to produce a link to where the `pki.json` file is
+located (`raw.github.com/user/repo/master/pki.json`, for instance).
 
 ```
-pkp request
+pkp request --create
 ```
 
 ### Step B
-`USER A` adds "signers" in which `pkp` emails a link alerting each
-signer. Let `USER B` be a signer for the request in this case.
+`USER B` passes the link to `pkp` to sign the request. `pkp` outputs
+the new signed request. Optionally, it can email the signed request
+back to `USER A`.
 
 ```
-pkp request signer dominic@dominictarr.com
-```
-
-### Step C
-`USER B` passes the link to `pkp` to sign the request in which `pkp`
-emails `USER A` with the signed request. `pkp` posts the signing data
-to a public service of record. The data includes the public key of the
-signer and the signiture that was made using the `sha1` as the secret 
-to sign with.
-
-```
-pkp request sign http://git.io/bOeLyA
+pkp request --sign http://git.io/bOeLyA
 ```
 
 ### Step D
-`USER A` can then accept the signed request by using `pkp` to add it to
-their `pki.json` file and republish with `+S.n` in the new version where
-`n` is the next signing. This includes the signing data from `USER B` 
-which can then be used to verify the signature.
+`USER A` can then accept the signed request by merging it back into
+their `pki.json`. Optionally republish with `+S.n` in the new version 
+where `n` is the new signed version.
 
 ```
 pkp request accept ...
 ```
 
 ## THIRD PARTY VERIFICATION
-When `USER C` whants to verify the package, they use the data that has
-been written to `pki.json` by executing the following command.
 
 ```
 pkp verify
