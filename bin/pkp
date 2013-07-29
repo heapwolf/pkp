@@ -125,15 +125,20 @@ switch (command) {
         if (err) {
           return console.log(err)
         }
-        process.stdout.write(JSON.stringify(request))
+        process.stdout.write(JSON.stringify(request, 2, 2))
       })
     }
 
     //
     // accept the signed request from the public service using the emailed link
     //
-    else if (subcommand === 'accept') {
+    else if (argv.verify) {
 
+      lib.request.verify(argv, function(err, request) {
+
+        
+
+      })
     }
 
   ;break

@@ -36,9 +36,12 @@ their `pki.json`. Optionally republish the package with `+S.<n>` in
 the new version where `n` is the new signed version number.
 
 ## THIRD PARTY VERIFICATION
+The verify method iterates though the signatures and validates that
+they were infact signed using the private key that corresponds to the
+public key provided.
 
 ```
-pkp verify
+pkp request --verify [version]
 ```
 
 ## PKI FILE SPECIFICATION

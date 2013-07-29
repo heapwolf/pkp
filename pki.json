@@ -8,6 +8,12 @@
       "type": "git",
       "url": "git://github.com/hij1nx/pkp.git"
     },
-    "signatures": []
+    "signatures": [
+      {
+        "key": "-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEAwIB6PV4gYy1X47zQllmke+KGYdXFH1xyrO0q4DZw3OBHr187xZWn81LWI6av\nyIhW+XDeVYuAud1+VqnsvsBASD19qc2xXiZ21cHdSfB1N2nSHBBHB2e+ubhDEN9PbhAcO+BK\ngr8E0/ucGy5thM70KZpVuJGXZJWABzlrin/Q3xyk/46OFQNj5DXjmSfSoWcs76TknAkttz0N\nc4QK3buByERNeWOjJsZjTj5w8StVpwfc2Ut3wUIoks/8w+nwqiAW1tHVoCjcol8fHIvRiiNH\n1bYS+ZkBgb0RUKzQkl+l8o6IfFzhSnvt9g+E5aVOgzJs/O2RdwjpHpVsfwh74pM8qwIDAQAB\n-----END RSA PUBLIC KEY-----\n\n",
+        "author": "Paolo Fragomeni <paolo@async.ly> http://twitter.com/hij1nx",
+        "signature": "iUg2Emr52owdvQ7lT1Mhhx701VDh69FSCfNbTYvC4O6X7bUTsXvfyvIb6OZVNt2nVlU0xuPchacj7JvKJ6x5d8GFa1X2A4diru5KleT0Vk69OrszlpSBqbZM7urH+IafnnOGq82dyrugo9+D7Pjw0+RDRV/c/vtj5UNtic4APqZETNCCnFm/vGVMFDLwIEzkv06ehnVrvOqsItYUgywdhg9DPuol9sq64Ug3KTdSrEp1KPnzqPP/UPsWctalNRCfGdVmoLw1ZsAeq9JptgdKOlhLlLMEvnXhHko2mlprWUpDkNcNHg2qMs08XMhZ81OuTwM6xXd/dYHh9K3Z4nLVtQ=="
+      }
+    ]
   }
 }
