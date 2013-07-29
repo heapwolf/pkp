@@ -2,8 +2,12 @@
   "0.0.1": {
     "author": "Paolo Fragomeni <paolo@async.ly> http://twitter.com/hij1nx",
     "key": "-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEArK+Y3VS9tJNH6KICqxygaSCu5q51k/KInqHzkZgclSTzbacuKdKc2H4L6Ym0\nWf8NTD7HSMnPNTxqIcnIeNMQhioMcQPZrSjFLI91Vdu7zhTeHo4mCv1HVcJiMMoh6K84sTjA\nq019U6M7Rm6nCYsxCU0dpdaRUAdLY5HqkOyFRAm87GhQu4TSWZS4NoZw/tzu+z6KcaN3MxaF\nCI57TgMl627zNDJbWsqLHAKONvR1/wNYbCxmMM4OFLgahmXq1evIMYwFoSlJNRKSJdncjYYC\nt6X5nBRiTu4tiNPU2OPSUniFDFDp5et4Ltznm2i6SEa4V715SPYiIZ6WHFaCzgqMcwIDAQAB\n-----END RSA PUBLIC KEY-----\n\n",
-    "date": 1374976255084,
-    "sha1": "b9f8f3246ea6c7ba915f0dcf45096c217a77edad",
+    "date": 1375129050103,
+    "sha1": "3416090b1030e1cfbbe898983f1409bee6c9fd28",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/hij1nx/pkp.git"
+    },
     "signatures": []
   }
 }

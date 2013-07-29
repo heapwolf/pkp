@@ -3,6 +3,7 @@
 var fs = require('fs')
 var path = require('path')
 var util = require('util')
+var url = require('url')
 
 var lib = require('../index')
 var files = require('../lib/files')
@@ -75,10 +76,24 @@ switch (command) {
         if (err) {
           return console.error(err)
         }
-        return console.log(
-          'Successfully created a signing request for', 
-          files.get('package').version
-        )
+
+        var raw
+        var info
+        var sendURL
+
+        if (!request.repository) {
+          return console.error('ERR: No repository field was found in the package.json.')
+        }
+
+        //
+        // if possible build the raw location to 
+        //
+        if (request.repository && request.repository.url.indexOf('github.com')) {
+          var info = url.parse(request.repository.url).pathname.split('.')[0]
+          sendURL = 'https://raw.github.com/' + info + '/master/pki.json'
+        }
+
+        console.log('Sign with `pkp sign %s`.', sendURL)
       })
     }
 
@@ -86,7 +101,7 @@ switch (command) {
     // add signers to the request by posting the 
     // request to a public service of record
     //
-    else if (subcommand === 'signer') {
+    else if (subcommand === 'send') {
 
       console.log('Attempting to send a signing request')
       lib.request.signer(argv, function(err, request) {
@@ -103,15 +118,14 @@ switch (command) {
     // sign the actual request and post the modified file to the 
     // public service of record with the modified pki.json
     //
-    else if (subcommand === 'sign') {
+    else if (argv.sign) {
 
-      lib.request.sign(argv, function(err) {
+      lib.request.sign(argv, function(err, request) {
         
         if (err) {
           return console.log(err)
         }
-        console.log('Successfully signed the request')
-
+        process.stdout.write(JSON.stringify(request))
       })
     }
 
