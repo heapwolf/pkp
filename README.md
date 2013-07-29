@@ -1,5 +1,8 @@
 # Public Key Infrastructure for Packages
 
+```
+npm install pkp -g
+```
 
 ## SYNOPSIS
 This is a specification and implementation that leverages Public Key 
