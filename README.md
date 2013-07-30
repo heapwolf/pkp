@@ -10,7 +10,7 @@ npm install pkp -g
 
 ## SIGNING WORKFLOW
 
-### Step A
+### Step 1
 `USER A` creates a signing request for the version specified in the
 `package.json` file. This results in a `pki.json` file that contains 
 `USER A`'s public key and a hash of the codebase (excluding the signing 
@@ -21,7 +21,7 @@ located (`raw.github.com/user/repo/master/pki.json`, for instance).
 pkp request --create
 ```
 
-### Step B
+### Step 2
 `USER B` passes the link to `pkp` to sign the request. `pkp` outputs
 the new signed request. Optionally, it can email the signed request
 back to `USER A`.
@@ -30,7 +30,7 @@ back to `USER A`.
 pkp request --sign http://git.io/bOeLyA
 ```
 
-### Step C
+### Step 3
 `USER A` can then accept the signed request by merging it back into
 their `pki.json`. Optionally republish the package with `+S.<n>` in 
 the new version where `n` is the new signed version number.
