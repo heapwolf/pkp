@@ -7,9 +7,8 @@ to work in concert with [PKS][0].
 ## MOTIVATION
 PKP is based on the work of [SDSI][1], a simple distributed security
 infrastructure. PKP is meant to lower the technical barrier to using
-public key cryptography effectively. SDSI leverages
-[Public-key cryptography][2] which gives us the ability to sign data
-and to some degree, verify its origins.
+public key cryptography effectively to sign data and to some degree
+verify its origins.
 
 ```
 npm install pkp -g
@@ -18,14 +17,11 @@ pkp config
 
 ## SIGNING
 
-### Recursively hash the contents of a directory and produce a 
-`certificate`.
-```
-pkp init
-```
-
-### Hash the contents of a package, compare it with the hash found
-in the `certificate` as well as attempt to validate it's public key.
+### If a `data certificate` does not exist in the repository, recursively 
+hash the contents of a remote and produce a `data certificate`. If a `data
+certificate` is found, hash the contents of the remote, compare it with the 
+hash found in the `data certificate` as well as attempt to validate the
+corresponding public keys.
 ```
 pkp sign <package-name> [version]
 ```
