@@ -16,8 +16,7 @@ pkp config
 ```
 
 ## SIGNING
-
-### If a `data certificate` does not exist in the repository, recursively 
+If a `data certificate` does not exist in the repository, recursively 
 hash the contents of a remote and produce a `data certificate`. If a `data
 certificate` is found, hash the contents of the remote, compare it with the 
 hash found in the `data certificate` as well as attempt to validate the
