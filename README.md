@@ -28,6 +28,9 @@ or
 pkp sign --remote git://github.com/hij1nx/pkp.git
 ```
 
+The updated certificate can then be pushed to the remote or published
+with the package and won't cause side effects when validated.
+
 ## THIRD PARTY VERIFICATION
 The verify method tries to validate the certificates and their public 
 keys found in a specified pacakge-name or remote.
