@@ -1,0 +1,6 @@
+{
+  "address-at": prompt("Email Address"),
+  "real-name": prompt("Real Name"),
+  "servers-at": prompt("Server URLs", "async.ly"),
+  "public": prompt("Public Key Path", key || "./public.key")
+}

@@ -1,0 +1,116 @@
+#!/usr/bin/env node
+
+var path = require('path')
+var net = require('net')
+var fs = require('fs')
+
+var hashd = require('hashd')
+var crypto = require('crypto')
+var prompt = require('cli-prompt')
+var rimraf = require('rimraf')
+var deepcopy = require('deepcopy')
+
+var pkppackage = require(path.join(__dirname, '..', 'package.json'))
+
+var argv = require('optimist').argv
+var command = argv._[0]
+var lib = require('../lib')
+
+lib.config.get(function(err, config) {
+
+  if (err) {
+    console.log(err)
+    process.exit(1)
+  }
+
+  switch (command) {
+
+    //
+    // generate or add existing keys to the user config
+    //
+    case 'keys':
+
+      if (argv._[1] === 'create') {
+
+        var publicOut = argv['public-out'] || path.join(process.cwd(), 'public.key')
+        var privateOut = argv['private-out'] || path.join(process.cwd(), 'private.key')
+
+        console.log('Attempting to generate keys...')
+
+        lib.keys.create(argv, function(err, keypair) {
+          if (err) {
+            console.log(err)
+            process.exit(1)
+          }
+
+          try {
+            fs.writeFileSync(publicOut, keypair.public)
+            fs.writeFileSync(privateOut, keypair.private)            
+          }
+          catch (ex) {
+            console.log(ex)
+            process.exit(1)
+          }
+          console.log('Successfully created %s', publicOut)
+          console.log('Successfully created %s', privateOut)
+        })
+      }
+      else if (argv._[1] === 'add') {
+
+        if (!argv.public || !argv.private) {
+          var err = new Error('A `public` and `private` keys required')
+          console.log(err)
+          process.exit(1)
+        }
+        lib.keys.add(argv)
+        console.log('Successfully added public and private keys')
+      }
+
+    ;break
+
+    //
+    // create a certificate and publish it to a public key server
+    //
+    case 'publish':
+
+      return lib.cert.publish(argv, config, function(err) {
+        if (err) {
+          console.log(err)
+          process.exit(1)
+        }
+        console.log('The public-key was published to %s!', argv.host)
+      })
+    ;break;
+
+    //
+    // verify the signatures and public keys in a certificate
+    //
+    case 'verify':
+      lib.cert.verify(argv, function(err, response) {
+        // TODO...reimplement with some nice clean code
+      })
+    ;break
+
+    //
+    // add a signature to an existing certificate
+    //
+    case 'sign':
+      lib.cert.sign(argv, function(err, response) {
+        // TODO...reimplement with some nice clean code
+      })
+    ;break;
+
+    //
+    // prompt for fields required in the user config
+    //
+    case 'config':
+      return lib.config.exec(function(err) {
+        if (err) {
+          console.log(err)
+          process.exit(1)
+        }
+      })
+    ;break
+  }
+  process.exit(0)
+})
