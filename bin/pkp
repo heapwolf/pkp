@@ -22,7 +22,7 @@ var args = require('optimist')
   .describe('public-in', 'Input path and file for private key')
 
   .describe('host', 'Host address for publishing certificates')
-  .describe('config-out', 'Destination for config if not ~/.pkp')
+  .describe('out', 'Destination path and file for output')
   
   .alias('h', 'help')
 
@@ -113,7 +113,8 @@ lib.config.get(function(err, config) {
     ;break
 
     //
-    // add a signature to an existing certificate
+    // create a data-certificate or add a signature 
+    // to an existing certificate.
     //
     case 'sign':
       return lib.cert.sign(argv, config, function(err) {
@@ -125,6 +126,18 @@ lib.config.get(function(err, config) {
       })
     ;break
 
+    //
+    // create a new name-certificate
+    //
+    case 'name':
+      return lib.cert.name(argv, config, function(err) {
+        if (err) {
+          console.log(err)
+          process.exit(1)
+        }
+        process.exit(0)
+      })
+    ;break
     //
     // prompt for fields required in the user config
     //

@@ -1,0 +1,7 @@
+{
+  "address-at": prompt("Email Address", address),
+  "real-name": prompt("Real Name", realname),
+  "servers-at": prompt("Server URLs", servers),
+  "public": prompt("Public Key Path", "default")
+}
+

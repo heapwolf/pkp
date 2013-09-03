@@ -1,7 +1,0 @@
-{
-  "address-at": config["address-at"],
-  "real-name": config["real-name"],
-  "servers-at": config["servers-at"],
-  "data": hash,
-  "algorithm": algorithm
-}
