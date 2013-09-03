@@ -17,7 +17,7 @@ pkp config
 
 ## SIGNING
 If a `data certificate` does not exist, `pkp` will recursively hash the
-package or remote to produce one. If a `data certificate` is found, `pkp`
+package or repo to produce one. If a `data certificate` is found, `pkp`
 hashes the data, compares it with the hash found in the `data certificate` 
 and then tries to validate the corresponding public keys.
 ```
@@ -25,7 +25,7 @@ pkp sign <package-name> [version]
 ```
 or
 ```
-pkp sign --remote git://github.com/hij1nx/pkp.git
+pkp sign git://github.com/<user>/<repo>.git
 ```
 
 The updated certificate can then be pushed to the remote or published
