@@ -12,17 +12,38 @@ var deepcopy = require('deepcopy')
 
 var pkppackage = require(path.join(__dirname, '..', 'package.json'))
 
-var argv = require('optimist').argv
+var args = require('optimist')
+  .usage('pkp [options]')
+
+  .describe('public-out', 'Output path and file for public key')
+  .describe('public-in', 'Input path and file for public key')
+
+  .describe('private-out', 'Output path and file for private key')
+  .describe('public-in', 'Input path and file for private key')
+
+  .describe('host', 'Host address for publishing certificates')
+  .describe('config-out', 'Destination for config if not ~/.pkp')
+  
+  .alias('h', 'help')
+
+
+var argv = args.argv
+
+if (argv.help) {
+  console.log(args.help())
+  process.exit(0)
+}
+
+
 var command = argv._[0]
 var lib = require('../lib')
 
 lib.config.get(function(err, config) {
-
   if (err) {
     console.log(err)
     process.exit(1)
   }
-
+  
   switch (command) {
 
     //
@@ -57,7 +78,7 @@ lib.config.get(function(err, config) {
       }
       else if (argv._[1] === 'add') {
 
-        if (!argv.public || !argv.private) {
+        if (!argv['public-in'] || !argv['private-in']) {
           var err = new Error('A `public` and `private` keys required')
           console.log(err)
           process.exit(1)
@@ -72,7 +93,6 @@ lib.config.get(function(err, config) {
     // create a certificate and publish it to a public key server
     //
     case 'publish':
-
       return lib.cert.publish(argv, config, function(err) {
         if (err) {
           console.log(err)
@@ -87,6 +107,7 @@ lib.config.get(function(err, config) {
     //
     case 'verify':
       lib.cert.verify(argv, function(err, response) {
+
         // TODO...reimplement with some nice clean code
       })
     ;break
@@ -95,10 +116,14 @@ lib.config.get(function(err, config) {
     // add a signature to an existing certificate
     //
     case 'sign':
-      lib.cert.sign(argv, function(err, response) {
-        // TODO...reimplement with some nice clean code
+      return lib.cert.sign(argv, config, function(err) {
+        if (err) {
+          console.log(err)
+          process.exit(1)
+        }
+        process.exit(0)
       })
-    ;break;
+    ;break
 
     //
     // prompt for fields required in the user config
@@ -109,8 +134,9 @@ lib.config.get(function(err, config) {
           console.log(err)
           process.exit(1)
         }
-      })
+        process.exit(0)
+      }) 
     ;break
   }
-  process.exit(0)
+  process.exit(1)
 })

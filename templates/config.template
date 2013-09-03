@@ -2,6 +2,7 @@
   "address-at": prompt("Email Address"),
   "real-name": prompt("Real Name"),
   "servers-at": prompt("Server URLs"),
+  "npm-repository": prompt("npm repository (optional)", "http://registry.npmjs.org/"),
   "public": prompt("Public Key Path", "Auto-Generate"),
   "private": prompt("Private Key Path", "Auto-Generate")
 }
