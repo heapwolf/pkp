@@ -1,58 +1,54 @@
-COMMAND
+pkp [command]
 
-  pkp init             Initialize a project and create a `pki.json` file.
+.H1 COMMAND
+  name          Create a name-certificate ready ready for publishing.
 
+.H2 USAGE
+  pkp name [output-filename] [options]
 
-COMMAND
+.H2 OPTIONS
+  --out         Path and filename for name-certificate.
+  --public      Path and filename for public key.
 
-  pkp sign             Generate a request for this version of this package.
-                       Hashes entire codebase except for patterns found in 
-                       the ignore files specified.
+.H1 COMMAND
+  data          Create a data-certificate or add a signature to
+                an existing one.
 
-USAGE
+.H2 USAGE
+  pkp data <[module-name]|[url]> [options]
 
-  pkp sign <[module-name]|[--remote ...]> [version]
+.H2 OPTIONS
+  --public      Path and filename for public key
+  --version     Version of the package to sign
+  --key <path>  The path to the public key file to use. If 
+                one is not provided, the public key from the last 
+                request is used.
 
-OPTIONS
+.H1 COMMAND
+  verify        Verify a certificate.
 
-  --remote <url>       The remote url of the codebase.
-  --dir ./path         The path to the package's directory.
-  --key ./path         The path to the public key file to use. If 
-                       one is not provided, the public key from the last 
-                       request is used.
+.H2 USAGE
+  pkp verify <[module-name]|[url]> [options]
 
+.H1 COMMAND
+  publish       Publish a name or data certificate
 
-COMMAND
+.H2 USAGE
+  pkp publish [cert] [host]
 
-  pkp verify           Compare a proposed hash with the actual hash of the
-                       specific module or remote.
+.H1 COMMAND
+  config        Add or create configuration for your `~/.pkp` file.
 
-USAGE
+.H1 COMMAND
+  keys          Generate a public/private key pair.
 
-  pkp verify <[module-name]|[--remote ...]> [version]
+.H2 USAGE
+  keys <options>
 
-OPTIONS
-
-  --remote <url>       The remote url of the codebase.
-
-
-COMMAND
-
-  pkp config           Add or create configuration for your `~/.pkp` file.
-
-
-COMMAND
-
-  pkp keys create      Generate a public/private key pair.
-                       Writes the public key to the pki.json file and the 
-                       private key to stdout.
-     
-COMMAND     
-           
-  pkp keys add         Add an existing public key to the pki.json file.
-                       No new keys are generated, nothing to stdout.
-     
-OPTIONS     
-     
-  --public             A path to where the public key file can be read.
-  --private            A path to where the private key file can be read.
+.H2 OPTIONS
+  --create      Writes the public key to the pki.json file and the 
+                private key to stdout.
+  -add          Add an existing public key to the pki.json file.
+                No new keys are generated, nothing to stdout.
+  --public      A path to where the public key file can be read.
+  --private     A path to where the private key file can be read.

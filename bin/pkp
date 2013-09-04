@@ -9,34 +9,19 @@ var crypto = require('crypto')
 var prompt = require('cli-prompt')
 var rimraf = require('rimraf')
 var deepcopy = require('deepcopy')
-
 var pkppackage = require(path.join(__dirname, '..', 'package.json'))
-
 var args = require('optimist')
-  .usage('pkp [options]')
-
-  .describe('public-out', 'Output path and file for public key')
-  .describe('public-in', 'Input path and file for public key')
-
-  .describe('private-out', 'Output path and file for private key')
-  .describe('public-in', 'Input path and file for private key')
-
-  .describe('host', 'Host address for publishing certificates')
-  .describe('out', 'Destination path and file for output')
-  
-  .alias('h', 'help')
-
-
 var argv = args.argv
+var lib = require('../lib')
 
-if (argv.help) {
-  console.log(args.help())
+if (argv.help || argv.h) {
+  var helpPath = path.join(__dirname, '..', 'help.txt')
+  console.log(lib.nicetxt(fs.readFileSync(helpPath).toString()))
   process.exit(0)
 }
 
 
 var command = argv._[0]
-var lib = require('../lib')
 
 lib.config.get(function(err, config) {
   if (err) {
@@ -98,7 +83,7 @@ lib.config.get(function(err, config) {
           console.log(err)
           process.exit(1)
         }
-        console.log('The public-key was published to %s!', argv.host)
+        process.exit(0)
       })
     ;break;
 
@@ -106,9 +91,12 @@ lib.config.get(function(err, config) {
     // verify the signatures and public keys in a certificate
     //
     case 'verify':
-      lib.cert.verify(argv, function(err, response) {
-
-        // TODO...reimplement with some nice clean code
+      return lib.cert.verify(argv, config, function(err, response) {
+        if (err) {
+          console.log(err)
+          process.exit(1)
+        }
+        process.exit(0)
       })
     ;break
 
@@ -151,5 +139,4 @@ lib.config.get(function(err, config) {
       }) 
     ;break
   }
-  process.exit(1)
 })

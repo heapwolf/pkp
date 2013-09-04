@@ -1,25 +1,15 @@
 # Public Key Pen 
-
-## SYNOPSIS
-PKP helps you create, sign with and distribute public keys. It is designed
+Helps you create and distribute certificates. It is designed
 to work in concert with [PKS][0].
 
-## MOTIVATION
-PKP is based on the work of [SDSI][1], a simple distributed security
-infrastructure. PKP is meant to lower the technical barrier to using
-public key cryptography effectively to sign data and to some degree
-verify its origins.
 
+## USAGE
 ```
 npm install pkp -g
 pkp config
 ```
 
-## SIGNING
-If a `data certificate` does not exist, `pkp` will recursively hash the
-package or repo to produce one. If a `data certificate` is found, `pkp`
-hashes the data, compares it with the hash found in the `data certificate` 
-and then tries to validate the corresponding public keys.
+### SIGNING
 ```
 pkp sign <package-name> [version]
 ```
@@ -31,13 +21,72 @@ pkp sign git://github.com/<user>/<repo>.git
 The updated certificate can then be pushed to the remote or published
 with the package and won't cause side effects when validated.
 
-## THIRD PARTY VERIFICATION
+### THIRD PARTY VERIFICATION
 The verify method tries to validate the certificates and their public 
-keys found in a specified pacakge-name or remote.
+keys found in a specified package-name or remote.
 
 ```
 pkp verify <package-name> [version]
 ```
+
+## FAQ
+### INTRODUCTION
+_What is this?_
+
+PKP is based on the work of [SDSI][1], a simple distributed security
+infrastructure. PKP is meant to lower the technical barrier to using
+public key cryptography effectively to sign data and to some degree
+verify its origins.
+
+### SYBIL ATTACKS
+
+_What about an attack where someone creates a large number of 
+pseudonymous identities, using them to gain a disproportionately large 
+influence?_
+
+A Sybil attack depends on how easily identities can be created. PKS 
+is an "invitation-only" model, meaning the only
+members have been directly invited to participate. This is highly 
+influenced by PGP's "Chaining" style of trust.
+
+### AVAILABILITY/"SCALE"
+
+_"Invitation Only" sounds more secure, but since the networks will be 
+more exclusive, it's likely that the information I'm looking for isn't 
+available._
+
+Consider a New York City phone book, it's unlikely you'll lookup more 
+than n% of it. So instead of owning/updating the whole thing, you keep n%
+of it. If there is a number that you need, you can add it and become 
+accountable for it.
+
+### DUPLICATION/UNIQUENESS
+
+_What if Bob and John both add Alice to their "little phone books"?_
+
+First entry wins. It should never be removed, the first known public 
+key becomes the unique identity for an individual, even if its revoked or 
+expired.
+
+### REVOCATION/EXPIRATION
+
+_How is the [CRL latency problem][99] handled?_
+
+Requests to revoke certificates are circulated immediately and a 
+certificate gets a "revoked" attribute. If a certificate expires, it gets 
+an "expired" attribute.
+
+### MISC
+
+_Is this an [SDSI][98] implementation?_
+
+No. It's research. I'm putting together some practical ideas and 
+trying to see where it goes.
+
+[98]:http://people.csail.mit.edu/rivest/sdsi11.html#secprincipals
+[99]:http://lcs3.syr.edu/faculty/chin/cse774/readings/pki/gutmann02.pdf
+
+
 
 ## NAME CERTIFICATE
 
@@ -78,7 +127,6 @@ semver bla bla bla
 }
 ```
 
-[0]:http://
 [1]:http://groups.csail.mit.edu/cis/sdsi.html
 [2]:http://www.rsa.com/rsalabs/node.asp?id=2165
 [3]:http://firstmonday.org/ojs/index.php/fm/article/view/778/687
