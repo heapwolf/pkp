@@ -6,7 +6,6 @@ var fs = require('fs')
 
 var hashd = require('hashd')
 var crypto = require('crypto')
-var prompt = require('cli-prompt')
 var rimraf = require('rimraf')
 var deepcopy = require('deepcopy')
 var pkppackage = require(path.join(__dirname, '..', 'package.json'))
@@ -117,8 +116,8 @@ lib.config.get(function(err, config) {
     //
     // create a new name-certificate
     //
-    case 'name':
-      return lib.cert.name(argv, config, function(err) {
+    case 'image':
+      return lib.cert.image(argv, config, function(err) {
         if (err) {
           console.log(err)
           process.exit(1)
