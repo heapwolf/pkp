@@ -33,6 +33,7 @@ function die(err, msg) {
 }
 
 var command = argv._[0]
+var subcommand = argv._[1]
 
 lib.config.get(function(err, config) {
   if (err) {
@@ -41,6 +42,26 @@ lib.config.get(function(err, config) {
   }
   
   switch (command) {
+
+    //
+    // TODO: extended help
+    //
+    case 'help':
+      switch (subcommand) {
+ 
+        case 'keys':
+          console.log('...')
+        ;break
+
+        case 'verify':
+          console.log('...')
+        ;break
+
+        default:
+          console.log('pkp help [command]')
+        ;break
+      }
+    ;break
 
     //
     // generate or add existing keys to the user config
@@ -104,7 +125,9 @@ lib.config.get(function(err, config) {
     // create an image form the public key in the config
     //
     case 'image':
-      pngify.encodeImage(config.public, argv._[1], die)
+      var p = argv._[1] || path.join(process.cwd(), 'cert.png')
+      console.log('Writing public key to to %s', p)
+      pngify.encodeImage(config.public, p, die)
     ;break
 
     //

@@ -1,0 +1,11 @@
+{
+  "addresses": "paolo@async.ly",
+  "name": "Paolo Fragomeni",
+  "origin": "git://github.com/hij1nx/pkp.git",
+  "data": "Rwh08nYfZGeLn4LDppTGVGN2FE8nYOR6vw6CTds8z1w4TragTwaRIaBTUAdBumE6YcoUkCaVD6DywG3+PFgPjD32ME3MKvkW7u3GkjS1m9wZLGanz10J9k13HYSfiru2cTf3WUC142x9CSIJ2vzIpLQ9EvatpR40I8lb3NgoKBewBOd/JIo1wQdsV2AGBdyGbwyMhk6IcN4ohI/chHWRlGqoOUr/CL4GmgmsR+UDRquK7WzIh1iGS+8j7i3bpToeQrTkUj8DlIqsLiNSamdjpb8MsU7c85dmHKPMvMYBR0sa/jazDU9zheDPgElWjQmqgCI0I86/yoRv86xqvv2BSQ==",
+  "algorithm": "sha1-base64",
+  "public": "-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEArqS5B/wF1h1sIwblX31cMpRzC3cfvkMHymXI5rLo7kfqg8mqi/Ax47n3tJ/e\ng0wek7xWW7Itz+/WvbP/wr/dcNC+Hw29CDgP/sirlQfAhRQUVrT+SgqynIlo9CA1lrEvlCwl\n/pDLcXB4lgfKJ5k4u2m6iKkcZ4UznSvpg+tGkNC3DcWvyPnwPf796vVEMMw+fnfdNNNWQWiz\n/n42BiyFW2ZXUt8SgK9hBe/DD3j6U2fg7zJEFrO8iWzXVNN/EaF6/6wFzXxOA3cZ33RNkgLg\nw0ir+uMka2ZJ3/wLWNs3yuMv5tzbZHv2sxTEen34Xe+X+UiefePqBVBVLqdSsgIWRwIDAQAB\n-----END RSA PUBLIC KEY-----\n\n",
+  "urls": [
+    "http://twitter.com/status/21234523452332"
+  ]
+}
