@@ -2,7 +2,7 @@
   "addresses": "paolo@async.ly",
   "name": "Paolo Fragomeni",
   "origin": "git://github.com/hij1nx/pkp.git",
-  "hash": "3879b306cb78be759260d0682e63376c8e4a2817",
+  "hash": "03fadc28adce12b59992835ff391795f77e9d7f8",
   "public": "-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEArqS5B/wF1h1sIwblX31cMpRzC3cfvkMHymXI5rLo7kfqg8mqi/Ax47n3tJ/e\ng0wek7xWW7Itz+/WvbP/wr/dcNC+Hw29CDgP/sirlQfAhRQUVrT+SgqynIlo9CA1lrEvlCwl\n/pDLcXB4lgfKJ5k4u2m6iKkcZ4UznSvpg+tGkNC3DcWvyPnwPf796vVEMMw+fnfdNNNWQWiz\n/n42BiyFW2ZXUt8SgK9hBe/DD3j6U2fg7zJEFrO8iWzXVNN/EaF6/6wFzXxOA3cZ33RNkgLg\nw0ir+uMka2ZJ3/wLWNs3yuMv5tzbZHv2sxTEen34Xe+X+UiefePqBVBVLqdSsgIWRwIDAQAB\n-----END RSA PUBLIC KEY-----\n\n",
   "algorithm": "sha1-base64",
   "urls": [
