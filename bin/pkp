@@ -19,6 +19,18 @@ if (argv.help || argv.h) {
   process.exit(0)
 }
 
+function die(err, msg) {
+  if (err) {
+    console.log(err)
+    process.exit(1)
+  }
+  else {
+    if (msg) {
+      console.log(msg)
+    }
+    process.exit(0)
+  }
+}
 
 var command = argv._[0]
 
@@ -74,29 +86,10 @@ lib.config.get(function(err, config) {
     ;break
 
     //
-    // create a certificate and publish it to a public key server
-    //
-    case 'publish':
-      return lib.cert.publish(argv, config, function(err) {
-        if (err) {
-          console.log(err)
-          process.exit(1)
-        }
-        process.exit(0)
-      })
-    ;break;
-
-    //
     // verify the signatures and public keys in a certificate
     //
     case 'verify':
-      return lib.cert.verify(argv, config, function(err, response) {
-        if (err) {
-          console.log(err)
-          process.exit(1)
-        }
-        process.exit(0)
-      })
+      lib.cert.verify(argv, config, die) 
     ;break
 
     //
@@ -104,38 +97,30 @@ lib.config.get(function(err, config) {
     // to an existing certificate.
     //
     case 'sign':
-      return lib.cert.sign(argv, config, function(err) {
-        if (err) {
-          console.log(err)
-          process.exit(1)
-        }
-        process.exit(0)
-      })
+      lib.cert.sign(argv, config, die)
+    ;break
+    
+    //
+    // create an image form the public key in the config
+    //
+    case 'image':
+      pngify.encodeImage(config.public, argv._[1], die)
     ;break
 
     //
-    // create a new name-certificate
+    // add a url to the users configuration where public keys
+    // can be found and verify the signer is actually the signer.
     //
-    case 'image':
-      return lib.cert.image(argv, config, function(err) {
-        if (err) {
-          console.log(err)
-          process.exit(1)
-        }
-        process.exit(0)
-      })
+    case 'url':
+      lib.config.addUrl(argv._[1], die)
     ;break
+
     //
     // prompt for fields required in the user config
     //
     case 'config':
-      return lib.config.exec(function(err) {
-        if (err) {
-          console.log(err)
-          process.exit(1)
-        }
-        process.exit(0)
-      }) 
+      lib.config.create(die)
     ;break
   }
 })
+

@@ -1,21 +1,7 @@
 pkp [command]
 
-.H1 COMMAND
-  name          Create a name-certificate ready ready for publishing.
-
 .H2 USAGE
-  pkp name [output-filename] [options]
-
-.H2 OPTIONS
-  --out         Path and filename for name-certificate.
-  --public      Path and filename for public key.
-
-.H1 COMMAND
-  data          Create a data-certificate or add a signature to
-                an existing one.
-
-.H2 USAGE
-  pkp data <[module-name]|[url]> [options]
+  pkp sign <[module-name]|[url]> [options]
 
 .H2 OPTIONS
   --public      Path and filename for public key
