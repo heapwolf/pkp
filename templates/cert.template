@@ -2,7 +2,10 @@
   "addresses": prompt("Email Address", addresses),
   "name": prompt("Real Name", name),
   "origin": prompt("Origin URL", origin),
-  "data": data,
-  "algorithm": algorithm
+  "hash": hash,
+  "public": public,
+  "algorithm": algorithm,
+  "urls": urls,
+  "signatures": []
 }
 
