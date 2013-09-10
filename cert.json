@@ -2,11 +2,11 @@
   "addresses": "paolo@async.ly",
   "name": "Paolo Fragomeni",
   "origin": "git://github.com/hij1nx/pkp.git",
-  "hash": "4563849d2f3ed17b9366c3f859bd4fe292ccc5ae",
+  "hash": "34c410518246148a5337176432658dc6d8eb561f",
   "public": "-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEAy2cFwIBq+9XRmww0O7J+oWX7qWvx8J+2SW6623d4HPYUsH5x92mz5X/Bvxos\n3NzrO1F9YypWzWPkT8WcXO2EZUAP4fxPweTL4J0Yk/YNap8UqK+bhkbgFDoyTHeYMumICSpH\nEfhaCAbHJv/L8JguVCvSu4rCsIpGFEVSZK22GQzexAPFH56KzDUc1Em9CCGmb08YBd8ewp5+\nZvcX9a/fc6NbmvEFI6FmTwytTNMsoWAomxOmLciZB1Z4T/DGAjBSXNY8n6bSpfSZ1XW2mFud\n3w8k4EwufIHoQ/MOPr/xKMT+nZhf4Hud60hMf26d3JTU8TjKFtQDzbUATF7yAjGRowIDAQAB\n-----END RSA PUBLIC KEY-----\n\n",
   "algorithm": "sha1-base64",
   "urls": [
-    "https://gist.github.com/hij1nx/6493984/raw/6e546d3a452d370a1255b779d1f22fb1300c3010/gistfile1.txt"
+    "https://gist.github.com/hij1nx/6510725/raw/011be0eba83e5d9d1ca99c52a85005f40abddb0c/gistfile1.txt"
   ],
   "signatures": [],
   "signature": "cAPN/eAi0sp5WN/Y+msRXUq3Y5D+3kSjkV8UBM7fuJXyKXrKK5AW3Ds6ihLNYVIq9QQItDdJDf8U36+8sfz2S08ef2nsyM84ckdFHtaA7CNKAAQgu17VUj1ejpnZX0O602VF7qOyfQILhOXWrhOAQGw/cIVPmd5d98aPhVKUHlBzYzSi4MsXbO70LRhx75qlX/n7q+IY+ZQCzZDHM6MR3tLyFzeqTDnVdxEmWrOynmXyPEPGoZq1Tlqmb1m/YQeLlyNle90t0inSt0evjfFPytn+jEO+fOXqxUDV0F8TCrPqnasBGtx9tmYOpbCqmlC0N3Q5PvFtWM4s+x8E7E/OVA=="
