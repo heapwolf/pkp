@@ -2,12 +2,12 @@
   "addresses": "paolo@async.ly",
   "name": "Paolo Fragomeni",
   "origin": "git://github.com/hij1nx/pkp.git",
-  "hash": "34c410518246148a5337176432658dc6d8eb561f",
-  "public": "-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEAy2cFwIBq+9XRmww0O7J+oWX7qWvx8J+2SW6623d4HPYUsH5x92mz5X/Bvxos\n3NzrO1F9YypWzWPkT8WcXO2EZUAP4fxPweTL4J0Yk/YNap8UqK+bhkbgFDoyTHeYMumICSpH\nEfhaCAbHJv/L8JguVCvSu4rCsIpGFEVSZK22GQzexAPFH56KzDUc1Em9CCGmb08YBd8ewp5+\nZvcX9a/fc6NbmvEFI6FmTwytTNMsoWAomxOmLciZB1Z4T/DGAjBSXNY8n6bSpfSZ1XW2mFud\n3w8k4EwufIHoQ/MOPr/xKMT+nZhf4Hud60hMf26d3JTU8TjKFtQDzbUATF7yAjGRowIDAQAB\n-----END RSA PUBLIC KEY-----\n\n",
+  "hash": "9b7387db664aac4037816e0220383b1d026cf734",
+  "public": "-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEAoELLTZPXzkR5CNRYze52nSLRTumyVjMNrjlPm3KSamKd0AqWHY2S3N440i27\nvZ9bNbAGhEtyUWAS4V/LXiJPqCWKg87l6RF0EGivW4SZI/l5YHx1gfSL5dA51pM5KjnRGvV4\nUOYKGGQMfJsNNs5z6ldJ80RL3GR2oCN0vS5cVShvlTZ9cZGbjhQssJpLFmPspJjVHeUSsDgl\noDucfOa0gQK/Pmjr4mvp25Tq3+2n8qMgokTCcZ0IzUzS3XanExu1wCzTcmG3rQA7AWNPj3cP\n/gZbNZ8Rop5vCZmJaTJqtzwwMlN1I0CRid92Xx1X6/c9UQJvX8CiVG6gLiWawLZcyQIDAQAB\n-----END RSA PUBLIC KEY-----\n\n",
   "algorithm": "sha1-base64",
   "urls": [
-    "https://gist.github.com/hij1nx/6510725/raw/011be0eba83e5d9d1ca99c52a85005f40abddb0c/gistfile1.txt"
+    "https://gist.github.com/hij1nx/6510777/raw/59023e6cf31ebca3a2367bf943b466912642e684/gistfile1.txt"
   ],
   "signatures": [],
-  "signature": "cAPN/eAi0sp5WN/Y+msRXUq3Y5D+3kSjkV8UBM7fuJXyKXrKK5AW3Ds6ihLNYVIq9QQItDdJDf8U36+8sfz2S08ef2nsyM84ckdFHtaA7CNKAAQgu17VUj1ejpnZX0O602VF7qOyfQILhOXWrhOAQGw/cIVPmd5d98aPhVKUHlBzYzSi4MsXbO70LRhx75qlX/n7q+IY+ZQCzZDHM6MR3tLyFzeqTDnVdxEmWrOynmXyPEPGoZq1Tlqmb1m/YQeLlyNle90t0inSt0evjfFPytn+jEO+fOXqxUDV0F8TCrPqnasBGtx9tmYOpbCqmlC0N3Q5PvFtWM4s+x8E7E/OVA=="
+  "signature": "dBNazdT1sjsDaOlWfWQygdgSzeVpOFJS+uVYGnsI8FIGrZEuVxnIDZ6BlHRpOC0s64+vr/74A9ifibxgnB42h9khjL+FJ8upDnoVBowCTB86n5ADnNWboYITfQukdo1gXc8p2/Wk9DEJOzvBMYbYcAkS0XR3rJaF5ZUNoHtCeYJdZcL4qGRYyQlXb0XLJLME/hf3dH7ZAYVE10fisIadc8g0bRRYkdEfAk1hL8IzlfrJd2qaxm4QtflKkT13/+gFeBy+OvB1whYlcxv3nnU/lLIB2FkiyEj/LPC23MS1I9fvzVewY42lj24/q4NBvuCh45hRSs6BXLXO008w9H4bNg=="
 }
